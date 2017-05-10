@@ -6,6 +6,7 @@ require('dotenv').config();
 
 // Default configuations applied to all environments
 module.exports = {
+  version: '1.0.0',
   env: process.env.NODE_ENV,
   test: process.env.NODE_ENV === 'test',
   development: process.env.NODE_ENV === 'development',

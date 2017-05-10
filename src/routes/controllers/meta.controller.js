@@ -4,7 +4,7 @@ import config from 'config';
 class MetaController extends BaseController {
   index(req, res) {
 		res.json({
-			version: Constants.version,
+			version: config.version,
 		});
 	}
 }
