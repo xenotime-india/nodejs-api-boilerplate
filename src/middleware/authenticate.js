@@ -1,26 +1,15 @@
-/*import jwt from 'jsonwebtoken';
-import Constants from '../config/constants';
+import config from 'config';
+import passport from 'passport';
+import expressJwt from 'express-jwt';
 
-const { sessionSecret } = Constants.security;
+export default {
+  authenticate: expressJwt({
+    secret: config.JWT_SECRET,
+  }),
 
-export default function authenticate(req, res, next) {
-  const { authorization } = req.headers;
-  jwt.verify(authorization, sessionSecret, async (err, decoded) => {
-    if (err) {
-      return res.sendStatus(401);
-    }
-
-    // If token is decoded successfully, find user and attach to our request
-    // for use in our route or other middleware
-    try {
-      const user = await User.findById(decoded._id);
-      if (!user) {
-        return res.sendStatus(401);
-      }
-      req.currentUser = user;
-      next();
-    } catch(err) {
-      next(err);
-    }
-  });
-}*/
+  passportAuthenticate: passport.authenticate(
+    'local', {
+      session: false,
+      scope: [],
+    }),
+};

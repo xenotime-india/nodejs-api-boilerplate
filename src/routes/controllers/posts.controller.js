@@ -1,7 +1,6 @@
 import BaseController from './base.controller';
 
 class PostController extends BaseController {
-
   whitelist = [
     'text',
   ];
@@ -10,7 +9,7 @@ class PostController extends BaseController {
   _populate = async (req, res, next) => {
     const { id } = req.params;
 
-    /*try {
+    /* try {
       const post = await Post.findById(id);
 
       if (!post) {

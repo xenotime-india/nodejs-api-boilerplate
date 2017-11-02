@@ -9,7 +9,7 @@ export default function errorHandler(err, req, res, next) {
     message: err.message || 'Internal Server Error.',
   };
 
-  if (config.envs.development) {
+  if (config.development) {
     error.stack = err.stack;
   }
 
