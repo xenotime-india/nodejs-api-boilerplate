@@ -83,13 +83,15 @@ const options = {
 // initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(options);
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+if (!config.production) {
+  app.use(config.SWAGGER_DOC_PATH, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // serve swagger
-app.get('/api/swagger', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerSpec);
-});
+  app.get('/api/swagger', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerSpec);
+  });
+}
 
 app.listen(config.PORT, () => {
   // eslint-disable-next-line no-console

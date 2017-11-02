@@ -21,6 +21,7 @@ module.exports = {
   DATABASE_URL: process.env.DATABASE_URL,
   SWAGGER_TITLE: '',
   SWAGGER_VERSION: '',
+  SWAGGER_DOC_PATH: process.env.SWAGGER_DOC_PATH || '/api-doc',
   SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
   FROM_EMAIL_ADDRESS: process.env.FROM_EMAIL_ADDRESS,
   VERIFY_EMAIL_URL: process.env.VERIFY_EMAIL_URL,
